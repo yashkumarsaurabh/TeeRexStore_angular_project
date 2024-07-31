@@ -1,0 +1,7 @@
+<mat-form-field>
+    <input matInput [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Search a product...">
+</mat-form-field>
+<button mat-button (click)="onSearch()">
+    <mat-icon>search</mat-icon>
+</button>
+  

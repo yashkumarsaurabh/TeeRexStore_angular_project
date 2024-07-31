@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+mat-card {
+    height: 275px;
+    width: 200px;
+    margin: 14px;
+
+    mat-card-title {
+        margin-left: 8px;
+    }
+
+    mat-card-header {
+        height: 200px;
+    }
+}
+
+mat-card-actions {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        font-weight: bold;
+    }
+
+    .item-count {
+        padding: 10px;
+    }
+
+    button {
+        background-color: black;
+        color: white;
+        height: 32px;
+        min-width: 40px;
+    }
+}
+
+img {
+    max-width: 100%;
+}

@@ -1,0 +1,51 @@
+h2 {
+    margin: 32px;
+}
+
+.shopping-items {
+    margin: 8px 200px;
+    padding: 32px;
+}
+
+mat-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    mat-list-item {
+        height: 100px;
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .list-container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+h3, h4 {
+    margin: 0;
+}
+
+.product-name {
+    margin-left: 50px;
+    padding: 8px;;
+}
+
+img {
+    margin: 8px;
+    height: 60px;
+    width: 60px;
+}
+
+.total-amount {
+    margin: 16px;
+    display: flex;
+    justify-content: center;
+}

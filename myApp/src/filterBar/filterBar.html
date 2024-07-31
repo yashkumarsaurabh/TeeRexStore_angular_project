@@ -1,0 +1,21 @@
+<div>
+    <h3>Colour</h3>
+    <section>
+        <mat-checkbox [value]="color" (change)="colorToggle($event)" *ngFor="let color of colors">{{color}}</mat-checkbox>
+    </section>
+    <h3>Gender</h3>
+    <section>
+        <mat-checkbox [value]="gender" (change)="genderToggle($event)" *ngFor="let gender of genders">{{gender}}</mat-checkbox>
+    </section>
+    <h3>Price</h3>
+    <section>
+        <mat-checkbox [value]="price" (change)="priceToggle($event)" *ngFor="let price of prices">{{price}}</mat-checkbox>
+    </section>
+    <h3>Type</h3>
+    <section>
+        <mat-checkbox [value]="type" (change)="typeToggle($event)" *ngFor="let type of types">{{type}}</mat-checkbox>
+    </section>
+    <section>
+        <button mat-button (click)="applyFilter()">Show results</button>
+    </section>
+</div>

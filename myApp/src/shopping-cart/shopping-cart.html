@@ -1,0 +1,29 @@
+<tool-bar></tool-bar>
+
+<h2>Shopping Cart</h2>
+<div class="shopping-items">
+    <mat-list>
+        <mat-list-item *ngFor="let product of shoppingList | keyvalue">
+          <div class="container">
+            <div class="list-container">
+              <img [src]="product.key.imageURL" />
+                <div class="product-name">
+                  <h3>{{product.key.name}}</h3>
+                  <h4>{{product.key.price}}</h4>
+                </div>
+            </div>
+            <div>
+              <mat-form-field>
+                <mat-label>Quantity</mat-label>
+                <select matNativeControl [(ngModel)]="product.value" (change)="onChange($event, product.key)">
+                  <option *ngFor="let item of quantityArray(product.key.quantity); index as i" [value]="i+1">{{i+1}}</option>
+                </select>
+              </mat-form-field>
+              <button mat-button (click)="deleteProduct(product.key)">Delete</button>
+            </div>
+          </div>
+        </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <h3 class = "total-amount">Total amount : {{getTotalAmount()}}</h3>
+</div>-

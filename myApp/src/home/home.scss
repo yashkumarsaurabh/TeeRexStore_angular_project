@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+}
+
+filter-bar {
+    width: 40%;
+    height: 100%;
+}
+
+filter-bar, product-list {
+    margin: 15px 30px;
+    padding: 20px;
+    background-color: aliceblue;
+}
+
+product-list {
+    width: 100%;
+}
+
+search-bar {
+    display: flex;
+    margin-left: 50%;
+}

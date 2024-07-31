@@ -1,0 +1,17 @@
+<div class="product-card" *ngFor = "let product of filterProducts">
+    <mat-card>
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-header>
+            <img [src] = "product.imageURL"/>
+        </mat-card-header>
+        <mat-card-actions>
+            <span>Rs {{product.price}}</span>
+            <button *ngIf="!hasProductInCart(product)" mat-button (click)="addToCart(product)">Add to Cart</button>
+            <div *ngIf="hasProductInCart(product)">
+                <button mat-button (click)="removeFromCart(product)">-</button>
+                <span class="item-count">{{productCount(product)}}</span>
+                <button mat-button (click)="addToCart(product)">+</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>
