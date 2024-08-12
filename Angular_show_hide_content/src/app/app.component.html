@@ -1,0 +1,7 @@
+<button (click)="showAllDescription()">ShowAll</button>&nbsp;
+<button (click)="hideAllDescription()">HideAll</button>
+<ul *ngFor="let item of items">
+<li><header>{{item.title}}</header>
+  <button (click)="toggleDescription(item)">Toggle Description</button>
+<article [hidden]="!item.showDescription">{{item.description}}</article></li>
+</ul>
