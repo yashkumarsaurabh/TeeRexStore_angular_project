@@ -40,3 +40,14 @@ mat-card-actions {
 img {
     max-width: 100%;
 }
+
+@media screen and (max-width: 450px) {
+    mat-card {
+        width: 340px;
+
+        mat-card-header {
+            justify-content: center;
+            height: 62%;
+        }
+    }
+}

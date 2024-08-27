@@ -4,5 +4,5 @@ import { ShoppingCart } from 'src/shopping-cart/shopping-cart';
 
 export const routes: Routes = [
     {path: '', component: Home},
-    {path: 'shopping-cart', component: ShoppingCart},
+    {path: 'cart', component: ShoppingCart},
 ];

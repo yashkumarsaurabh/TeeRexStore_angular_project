@@ -13,11 +13,18 @@ import { Product, ProductService } from "src/app/product.service";
 })
 export class ProductList {
     @Input() filterProducts: Product[] = [];
-
+    errorMessage: string = '';
     constructor(private service: ProductService){ }
 
     addToCart(product: Product):void {
-        this.service.setDataWithFreq(product);
+      const currentMap = this.service.dataSubject.value;
+      const currentCount = currentMap.get(product) || 0;
+        if(product.quantity > currentCount){
+          this.service.setDataWithFreq(product);
+        } else {
+          alert('We can not add more than this quantity!')
+          return;
+        }
     }
 
     removeFromCart(product: Product): void {

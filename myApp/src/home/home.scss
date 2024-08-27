@@ -21,3 +21,17 @@ search-bar {
     display: flex;
     margin-left: 50%;
 }
+
+@media screen and (max-width: 450px) {
+    search-bar {
+        margin: 0 20px;
+    }
+
+    filter-bar {
+        display: none;
+    }
+
+    product-list {
+        margin: 0;
+    }
+}

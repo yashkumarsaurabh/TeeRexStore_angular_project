@@ -32,6 +32,6 @@ export class ToolBar implements OnInit{
     }
 
     gotoCart():void {
-        this.router.navigate(['shopping-cart']);
+        this.router.navigate(['cart']);
     }
 }

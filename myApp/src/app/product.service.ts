@@ -40,11 +40,12 @@ export class ProductService {
 
    setDataWithFreq(product: Product): void {
     const currentMap = this.dataSubject.value;
-    const currentCount = currentMap.get(product) || 0;
+    let currentCount = currentMap.get(product) || 0;
     if(currentCount===0) {
       this.productAddedCount.next(this.productAddedCount.value+1);
     }
-    currentMap.set(product, currentCount + 1);
+    currentCount++;
+    currentMap.set(product, currentCount);
     this.dataSubject.next(currentMap);
   }
 

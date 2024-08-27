@@ -1,7 +1,10 @@
 <mat-form-field>
     <input matInput [(ngModel)]="searchQuery" (input)="onSearch()" placeholder="Search a product...">
 </mat-form-field>
-<button mat-button (click)="onSearch()">
+<a class='search-button-container' (click)="onSearch()">
     <mat-icon>search</mat-icon>
-</button>
+</a>
+<a class="filter" aria-label="Open filter">
+    <mat-icon>filter_list</mat-icon>
+</a>
   

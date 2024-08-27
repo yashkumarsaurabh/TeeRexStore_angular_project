@@ -2,11 +2,15 @@
     <mat-toolbar>
       <span>TeeRex Store</span>
       <span class="example-spacer"></span>
-      <button (click)="gotoProducts()" mat-button class="example-icon" aria-label="Product List">
+      <button (click)="gotoProducts()" mat-button class="product-button" aria-label="Product List">
         Products
       </button>
-      <button class="demo-section" [matBadge]="productcount" [matBadgeHidden]="hidden" (click)="gotoCart()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>shopping_cart</mat-icon>
-      </button>
+      <a
+      [matBadge]="productcount" 
+      [matBadgeHidden]="hidden" 
+      (click)="gotoCart()" 
+      aria-label="Example icon-button with share icon">
+      <mat-icon>shopping_cart</mat-icon>
+      </a>
     </mat-toolbar>
   </p>

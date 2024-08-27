@@ -1,3 +1,16 @@
 .example-spacer {
     flex: 1 1 auto;
   }
+
+@media screen and (max-width: 450px) {
+  .product-button {
+    display: none;
+  }
+}
+
+a {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}

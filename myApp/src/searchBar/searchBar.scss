@@ -2,10 +2,27 @@ mat-form-field {
     width: 400px;
 }
 
-button {
-    margin-top: 10px;
+.search-button-container, .filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 56px;
+    min-width: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.filter {
+    margin-left: 4px;
 }
 
 .mat-icon {
     font-size: 25px;
+}
+
+@media screen and (min-width: 600px) {
+    .filter {
+        display: none;
+    }
 }

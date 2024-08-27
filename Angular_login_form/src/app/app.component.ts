@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { AppService } from './app.service';
 import { App2 } from './app2.component';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,22 @@ export class AppComponent {
       password: this.password,
       email: this.email,
     })
+
+    let obs = new Observable(observer => {
+      observer.next(of([1,2,3,4]));
+      observer.next(of([1,2,3,4,5]));
+    });
+    obs.subscribe((data:any) => {
+      data.subscribe((data2: any) => {
+        console.log(data2);
+      })
+    }, error => console.log(error))
+    obs.subscribe((data:any) => {
+      data.subscribe((data2: any) => {
+        console.log(data2);
+      })
+    })
+    
   }
 
   onSubmit() {

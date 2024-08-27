@@ -10,7 +10,8 @@ import { FormsModule } from "@angular/forms";
     standalone: true,
     templateUrl: './searchBar.html',
     styleUrls: ['./searchBar.scss'],
-    imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
+    imports: [FormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule,
+    ],
 })
 export class SearchBar{
     searchQuery:string = '';
