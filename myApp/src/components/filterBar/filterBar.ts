@@ -1,7 +1,8 @@
 import { CommonModule } from "@angular/common";
-import { Component, EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 import {MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDialogRef } from "@angular/material/dialog";
 
 export interface priceRange {
     min:number,
@@ -28,6 +29,8 @@ export class FilterBar {
     prices:string[] = ['Rs 0-250','Rs 251-450','Rs 450-10000'];
     types:string[] = ['Polo','Hoodie','Basic'];
 
+    @Input() dialogRef!: MatDialogRef<any>;
+
     @Output() searchText = new EventEmitter<ProductFilter>();
 
     productFilters:ProductFilter = {
@@ -46,7 +49,6 @@ export class FilterBar {
                 this.productFilters.color.splice(index,1);
             }
         }
-        console.log(this.productFilters);
     }
 
     genderToggle(e:MatCheckboxChange){

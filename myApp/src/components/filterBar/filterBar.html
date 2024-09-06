@@ -16,6 +16,6 @@
         <mat-checkbox [value]="type" (change)="typeToggle($event)" *ngFor="let type of types">{{type}}</mat-checkbox>
     </section>
     <section>
-        <button mat-button (click)="applyFilter()">Show results</button>
+        <button class="filter-button" mat-button (click)="applyFilter()">Show results</button>
     </section>
 </div>

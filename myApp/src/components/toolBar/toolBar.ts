@@ -4,7 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ActivatedRoute, Router } from "@angular/router";
 import {MatBadgeModule} from '@angular/material/badge';
-import { ProductService } from "src/app/product.service";
+import { ProductService } from "src/services/product.service";
 
 @Component({
     selector: 'tool-bar',

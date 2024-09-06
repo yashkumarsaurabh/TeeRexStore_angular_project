@@ -1,11 +1,11 @@
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
-import { ToolBar } from "src/toolBar/toolBar";
+import { ToolBar } from "src/components/toolBar/toolBar";
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
-import { Product, ProductService } from "src/app/product.service";
+import { Product, ProductService } from "src/services/product.service";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";

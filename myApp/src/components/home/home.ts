@@ -1,15 +1,15 @@
 import { Component } from "@angular/core";
-import { Product, ProductService } from "src/app/product.service";
-import { FilterBar, ProductFilter } from "src/filterBar/filterBar";
-import { ProductList } from "src/product_list/product_list";
-import { SearchBar } from "src/searchBar/searchBar";
-import { ToolBar } from "src/toolBar/toolBar";
+import { Product, ProductService } from "src/services/product.service";
+import { FilterBar, ProductFilter } from "src/components/filterBar/filterBar";
+import { ProductList } from "src/components/product_list/product_list";
+import { SearchBar } from "src/components/searchBar/searchBar";
+import { ToolBar } from "src/components/toolBar/toolBar";
 
 @Component({
     selector: 'home',
     standalone: true,
     template: `<tool-bar></tool-bar>
-    <search-bar (searchEvent)="onSearch($event)"></search-bar>
+    <search-bar (searchEvent)="onSearch($event)" [applyFilterCallback]="applyFilter.bind(this)"></search-bar>
     <div class="container">
     <filter-bar (searchText)="applyFilter($event)"></filter-bar>
     <product-list [filterProducts]="filteredProducts"></product-list></div>`,
@@ -32,16 +32,15 @@ export class Home {
         })
     }
 
-    onSearch(searchText:string){
+    onSearch(text:string){
         this.filteredProducts = Array.from(this.products.keys()).filter((product)=>
-            product.name.toLowerCase().includes(searchText.toLowerCase()) ||
-            product.color.toLowerCase().includes(searchText.toLowerCase()) ||
-            product.type.toLowerCase().includes(searchText.toLowerCase())
+            product.name.toLowerCase().includes(text.toLowerCase()) ||
+            product.color.toLowerCase().includes(text.toLowerCase()) ||
+            product.type.toLowerCase().includes(text.toLowerCase())
         );
     }
 
     applyFilter(productFilter: ProductFilter){
-        console.log(productFilter)
         this.filteredProducts = Array.from(this.products.keys());
         if(productFilter.color.length>0){
             this.filteredProducts = this.filteredProducts.filter((product) => 

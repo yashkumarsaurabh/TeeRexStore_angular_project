@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { Home } from 'src/home/home';
-import { ShoppingCart } from 'src/shopping-cart/shopping-cart';
+import { Home } from 'src/components/home/home';
+import { ShoppingCart } from 'src/components/shopping-cart/shopping-cart';
 
 export const routes: Routes = [
     {path: '', component: Home},
