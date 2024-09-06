@@ -35,21 +35,21 @@ export class ShoppingCart implements OnInit {
 
     ngOnInit() {
         this.service.products.subscribe(productMap => {
-        const filterMap = new Map<Product, number>();
-        for (let [key, value] of productMap) {
-            if (value > 0) {
-            filterMap.set(key, value);
+            const filterMap = new Map<Product, number>();
+            for (let [key, value] of productMap) {
+                if (value > 0) {
+                    filterMap.set(key, value);
+                }
             }
-        }
-        this.shoppingList = filterMap;
-        this.cd.detectChanges();
+            this.shoppingList = filterMap;
+            this.cd.detectChanges();
         });
     }
 
     getTotalAmount(): number {
         let total: number = 0;
         for (const [product, quantity] of this.shoppingList) {
-        total += product.price * quantity;
+            total += product.price * quantity;
         }
         return total;
     }
@@ -61,9 +61,9 @@ export class ShoppingCart implements OnInit {
     onChange(e: Event, product: Product) {
         const target = e.target as HTMLInputElement;
         if (target) {
-        const newQuantity = +target.value;
-        this.service.updateProductQuantity(product, newQuantity);
-        this.cd.detectChanges();
+            const newQuantity = +target.value;
+            this.service.updateProductQuantity(product, newQuantity);
+            this.cd.detectChanges();
         }
     }
 

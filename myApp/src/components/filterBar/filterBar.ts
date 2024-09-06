@@ -1,12 +1,12 @@
 import { CommonModule } from "@angular/common";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
-import {MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogRef } from "@angular/material/dialog";
 
 export interface priceRange {
-    min:number,
-    max:number,
+    min: number,
+    max: number,
 }
 
 export interface ProductFilter {
@@ -24,71 +24,71 @@ export interface ProductFilter {
     imports: [CommonModule, MatCheckboxModule, MatButtonModule],
 })
 export class FilterBar {
-    colors:string[] = ['Red', 'Blue', 'Green'];
-    genders:string[] = ['Men','Women'];
-    prices:string[] = ['Rs 0-250','Rs 251-450','Rs 450-10000'];
-    types:string[] = ['Polo','Hoodie','Basic'];
+    colors: string[] = ['Red', 'Blue', 'Green'];
+    genders: string[] = ['Men', 'Women'];
+    prices: string[] = ['Rs 0-250', 'Rs 251-450', 'Rs 450-10000'];
+    types: string[] = ['Polo', 'Hoodie', 'Basic'];
 
     @Input() dialogRef!: MatDialogRef<any>;
 
     @Output() searchText = new EventEmitter<ProductFilter>();
 
-    productFilters:ProductFilter = {
+    productFilters: ProductFilter = {
         color: [],
         gender: [],
         price: [],
         type: []
     };
 
-    colorToggle(e:MatCheckboxChange){
-        if(e.checked){
+    colorToggle(e: MatCheckboxChange) {
+        if (e.checked) {
             this.productFilters.color.push(e.source.value.toLowerCase());
         } else {
             let index = this.productFilters.color.indexOf(e.source.value.toLowerCase());
-            if(index>-1){
-                this.productFilters.color.splice(index,1);
+            if (index > -1) {
+                this.productFilters.color.splice(index, 1);
             }
         }
     }
 
-    genderToggle(e:MatCheckboxChange){
-        if(e.checked){
+    genderToggle(e: MatCheckboxChange) {
+        if (e.checked) {
             this.productFilters.gender.push(e.source.value.toLowerCase());
         } else {
             let index = this.productFilters.gender.indexOf(e.source.value.toLowerCase());
-            if(index>-1){
-                this.productFilters.gender.splice(index,1);
+            if (index > -1) {
+                this.productFilters.gender.splice(index, 1);
             }
         }
     }
 
-    priceToggle(e:MatCheckboxChange){
-        let obj = {min:0,max:0};
+    priceToggle(e: MatCheckboxChange) {
+        let obj = { min: 0, max: 0 };
         let splitArr = e.source.value.split(/[\s-]+/);
-            obj.min = +splitArr[1];
-            obj.max = +splitArr[2];
-        if(e.checked){
+        obj.min = +splitArr[1];
+        obj.max = +splitArr[2];
+        if (e.checked) {
             this.productFilters.price.push(obj);
         } else {
-            let index = this.productFilters.price.findIndex((element)=> element.min === obj.min);
-            if(index>-1){
-                this.productFilters.price.splice(index,1);
+            let index = this.productFilters.price.findIndex((element) => element.min === obj.min);
+            if (index > -1) {
+                this.productFilters.price.splice(index, 1);
             }
         }
     }
 
-    typeToggle(e:MatCheckboxChange){
-        if(e.checked){
+    typeToggle(e: MatCheckboxChange) {
+        if (e.checked) {
             this.productFilters.type.push(e.source.value.toLowerCase());
         } else {
             let index = this.productFilters.type.indexOf(e.source.value.toLowerCase());
-            if(index>-1){
-                this.productFilters.type.splice(index,1);
+            if (index > -1) {
+                this.productFilters.type.splice(index, 1);
             }
         }
     }
 
-    applyFilter(){
+    applyFilter() {
         this.searchText.emit(this.productFilters);
     }
 }

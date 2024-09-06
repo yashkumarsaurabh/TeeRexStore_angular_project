@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output, inject } from "@angular/core";
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { FormsModule } from "@angular/forms";
-import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FilterBar, ProductFilter } from "src/components/filterBar/filterBar";
 
 @Component({
@@ -16,10 +16,10 @@ import { FilterBar, ProductFilter } from "src/components/filterBar/filterBar";
         MatDialogModule,
     ],
 })
-export class SearchBar{
+export class SearchBar {
     searchQuery: string = '';
     @Output() searchEvent = new EventEmitter<string>();
-    
+
     @Input() applyFilterCallback!: (filter: ProductFilter) => void;
 
     readonly dialog = inject(MatDialog);
@@ -40,14 +40,14 @@ export class SearchBar{
 }
 
 @Component({
-standalone: true,
-selector: 'dialog-overview',
-template: `<div style="margin: 12px">
+    standalone: true,
+    selector: 'dialog-overview',
+    template: `<div style="margin: 12px">
             <filter-bar (searchText)="onFilterApplied($event)"></filter-bar>
           </div>`,
-imports: [FilterBar],
+    imports: [FilterBar],
 })
-export class DialogOverview { 
+export class DialogOverview {
     readonly dialogRef = inject(MatDialogRef);
 
     onFilterApplied(filter: ProductFilter) {

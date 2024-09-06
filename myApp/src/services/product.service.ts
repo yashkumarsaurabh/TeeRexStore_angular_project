@@ -19,14 +19,14 @@ export interface Product {
 })
 export class ProductService {
   dataSubject = new BehaviorSubject<Map<Product, number>>(new Map());
-  products: Observable<Map<Product,number>>= this.dataSubject.asObservable();
+  products: Observable<Map<Product, number>> = this.dataSubject.asObservable();
   productAddedCount = new BehaviorSubject<number>(0);
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.fetchCartProducts();
   }
 
-   fetchCartProducts(): void {
+  fetchCartProducts(): void {
     this.http.get<Product[]>('https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json').pipe(
       tap((products: Product[]) => {
         const productFrequencyMap = new Map<Product, number>();
@@ -36,13 +36,13 @@ export class ProductService {
         this.dataSubject.next(productFrequencyMap);
       })
     ).subscribe();
-   }
+  }
 
-   setDataWithFreq(product: Product): void {
+  setDataWithFreq(product: Product): void {
     const currentMap = this.dataSubject.value;
     let currentCount = currentMap.get(product) || 0;
-    if(currentCount===0) {
-      this.productAddedCount.next(this.productAddedCount.value+1);
+    if (currentCount === 0) {
+      this.productAddedCount.next(this.productAddedCount.value + 1);
     }
     currentCount++;
     currentMap.set(product, currentCount);
@@ -55,7 +55,7 @@ export class ProductService {
       currentMap.set(product, quantity);
     } else {
       currentMap.set(product, 0);
-      this.productAddedCount.next(this.productAddedCount.value-1);
+      this.productAddedCount.next(this.productAddedCount.value - 1);
     }
     this.dataSubject.next(currentMap);
   }

@@ -25,47 +25,47 @@ export class Home {
     products: Map<Product, number> = new Map();
     filteredProducts: Product[] = [];
 
-    constructor(private service: ProductService){
+    constructor(private service: ProductService) {
         this.service.products.subscribe(data => {
             this.products = data;
             this.filteredProducts = Array.from(this.products.keys());
         })
     }
 
-    onSearch(text:string){
-        this.filteredProducts = Array.from(this.products.keys()).filter((product)=>
+    onSearch(text: string) {
+        this.filteredProducts = Array.from(this.products.keys()).filter((product) =>
             product.name.toLowerCase().includes(text.toLowerCase()) ||
             product.color.toLowerCase().includes(text.toLowerCase()) ||
             product.type.toLowerCase().includes(text.toLowerCase())
         );
     }
 
-    applyFilter(productFilter: ProductFilter){
+    applyFilter(productFilter: ProductFilter) {
         this.filteredProducts = Array.from(this.products.keys());
-        if(productFilter.color.length>0){
-            this.filteredProducts = this.filteredProducts.filter((product) => 
+        if (productFilter.color.length > 0) {
+            this.filteredProducts = this.filteredProducts.filter((product) =>
                 (productFilter.color.indexOf(product.color.toLowerCase()) > -1)
             );
         }
-        if(productFilter.gender.length>0){
-            this.filteredProducts = this.filteredProducts.filter((product) => 
+        if (productFilter.gender.length > 0) {
+            this.filteredProducts = this.filteredProducts.filter((product) =>
                 (productFilter.gender.indexOf(product.gender.toLowerCase()) > -1)
             );
         }
-        if(productFilter.price.length>0){
+        if (productFilter.price.length > 0) {
             this.filteredProducts = this.filteredProducts.filter((product) => {
-                let bool:boolean = false;
-                for(let x of productFilter.price){
-                    bool = (product.price>=x.min && product.price<=x.max);
-                    if(bool){
+                let bool: boolean = false;
+                for (let x of productFilter.price) {
+                    bool = (product.price >= x.min && product.price <= x.max);
+                    if (bool) {
                         return true;
                     }
                 }
-            return bool;
-            }    );
+                return bool;
+            });
         }
-        if(productFilter.type.length>0){
-            this.filteredProducts = this.filteredProducts.filter((product) => 
+        if (productFilter.type.length > 0) {
+            this.filteredProducts = this.filteredProducts.filter((product) =>
                 (productFilter.type.indexOf(product.type.toLowerCase()) > -1)
             );
         }

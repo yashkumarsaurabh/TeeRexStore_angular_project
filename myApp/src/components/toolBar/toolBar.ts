@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router } from "@angular/router";
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { ProductService } from "src/services/product.service";
 
 @Component({
@@ -18,20 +18,20 @@ import { ProductService } from "src/services/product.service";
         MatBadgeModule,
     ]
 })
-export class ToolBar implements OnInit{
+export class ToolBar implements OnInit {
     productcount: number = 0;
     hidden: boolean = false;
-    constructor(private service: ProductService, private router: Router, private route: ActivatedRoute){}
+    constructor(private service: ProductService, private router: Router, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.service.productAddedCount.subscribe(data => this.productcount = data);
     }
 
-    gotoProducts():void {
-        this.router.navigate(['/']);  
+    gotoProducts(): void {
+        this.router.navigate(['/']);
     }
 
-    gotoCart():void {
+    gotoCart(): void {
         this.router.navigate(['cart']);
     }
 }
