@@ -13,17 +13,17 @@
                 </div>
             </div>
             <div>
-              <mat-form-field>
+              <mat-form-field hintLabel="Select quantity.">
                 <mat-label>Quantity</mat-label>
                 <select matNativeControl [(ngModel)]="product.value" (change)="onChange($event, product.key)">
                   <option *ngFor="let item of quantityArray(product.key.quantity); index as i" [value]="i+1">{{i+1}}</option>
                 </select>
               </mat-form-field>
-              <button mat-button (click)="deleteProduct(product.key)">Delete</button>
             </div>
+            <button color="white" mat-button (click)="deleteProduct(product.key)">Delete</button>
           </div>
         </mat-list-item>
     </mat-list>
-    <mat-divider></mat-divider>
-    <h3 class = "total-amount">Total amount : {{getTotalAmount()}}</h3>
 </div>
+<hr class="solid">
+<h3 class = "total-amount">Total amount : {{getTotalAmount()}}</h3>

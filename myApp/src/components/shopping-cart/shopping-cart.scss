@@ -3,7 +3,7 @@ h2 {
 }
 
 .shopping-items {
-    margin: 8px 200px;
+    margin: 8px auto;
     padding: 32px;
 }
 
@@ -48,4 +48,30 @@ img {
     margin: 16px;
     display: flex;
     justify-content: center;
+}
+
+hr.solid {
+    margin: 0 40px;
+    border-top: 1px solid #bbb;
+}
+
+button {
+    background-color: red;
+    --mdc-text-button-label-text-color: white;
+}
+
+@media screen and (max-width: 599px) {
+    .shopping-items {
+        margin: 8px auto;
+        padding: 0;
+    }
+
+    mat-form-field {
+        width: 150px;
+    }
+
+    .product-name {
+        margin: 0;
+        padding: 8px;;
+    }
 }
