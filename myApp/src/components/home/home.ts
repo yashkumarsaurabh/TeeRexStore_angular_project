@@ -3,12 +3,11 @@ import { Product, ProductService } from "src/services/product.service";
 import { FilterBar, ProductFilter } from "src/components/filterBar/filterBar";
 import { ProductList } from "src/components/product_list/product_list";
 import { SearchBar } from "src/components/searchBar/searchBar";
-import { ToolBar } from "src/components/toolBar/toolBar";
 
 @Component({
     selector: 'home',
     standalone: true,
-    template: `<tool-bar></tool-bar>
+    template: `
     <search-bar (searchEvent)="onSearch($event)" [applyFilterCallback]="applyFilter.bind(this)"></search-bar>
     <div class="container">
     <filter-bar (searchText)="applyFilter($event)"></filter-bar>
@@ -16,7 +15,6 @@ import { ToolBar } from "src/components/toolBar/toolBar";
     styleUrls: ['./home.scss'],
     imports: [
         SearchBar,
-        ToolBar,
         FilterBar,
         ProductList,
     ],
